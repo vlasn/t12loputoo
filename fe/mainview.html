@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="main_wrapper">
+        <section class="header">
+            <h3 class="title" id="header__title">New report</h3>
+        </section>
+        <section class="body">
+            <label for="form-title" class="form__label">Title:</label>
+            <input type="text" class="body__input shallow" id="form-title">
+            <label for="form-description" class="form__label">Summary:</label>
+            <textarea class="body__input" id="form-description" resize="none"></textarea>
+
+            <input type="radio" name="bo-type" value="e-mail" id="bo-type-email" class="hidden">
+            <label for="bo-type-email" class="form__type-button hover-shadow">E-mail</label>
+            <input type="radio" name="bo-type" value="company id" id="bo-type-id" class="hidden">
+            <label for="bo-type-id" class="form__type-button hover-shadow">Company ID</label> :
+
+            <input type="text" class="body__input shallow" id="form-bo-info">
+
+        </section>
+        <section class="error">
+            <div class="error__body">
+                <div class="error-wrapper">
+                    <span class="error-text">S</span>
+                </div>
+            </div>
+        </section>
+        <section class="footer">
+            <button class="footer__button hover-shadow hover-red" id="cancel">Cancel</button>
+
+            <button class="footer__button hover-shadow hover-green" id="confirm">Send</button>
+        </section>
+    </div>
+</body>
+</html>
