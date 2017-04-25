@@ -27,7 +27,16 @@ app.get("/", (req,res)=> {
   .catch(e=>console.log(e))
 })
 app.post("/request",(req,res)=>{
-  console.log(req.body);
+  let errors = Validateur(req.body);
+  if(errors.length <1) {
+    Pipedrive.create(req.body)
+    .then(response => Pipedrive.addNote(req.body,response.data.data.id))
+    .then(response => Slack.post(req.body))
+    .then(response => res.json(response.data))
+    .catch(e=>console.log(e))
+  } else {
+    res.json(errors);
+  }
 })
 
 app.listen(3000, ()=> console.log("Server up."))

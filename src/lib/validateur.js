@@ -13,7 +13,7 @@ module.exports = input => {
   } else if (input.title.length>36) {
     errors.push("Please make sure title is shorter than 36 characters!")
   }
-
+  //description
   if(input.description.length<5) {
     errors.push("Please make sure description is more than 5 characters in length!")
   }

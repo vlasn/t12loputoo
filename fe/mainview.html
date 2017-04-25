@@ -6,41 +6,69 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+    <script src="popup.js"></script>
 </head>
 <body>
-    <div class="main_wrapper">
+    <div class="main_wrapper" id="supportbot-wrapper">
         <section class="header">
             <h3 class="title" id="header__title">New report</h3>
         </section>
         <section class="body">
             <label for="form-title" class="form__label">Title:</label>
-            <input type="text" class="body__input shallow" id="form-title">
+            <input type="text" class="body__input shallow" id="form-title" required>
             <label for="form-description" class="form__label">Summary:</label>
-            <textarea class="body__input" id="form-description" resize="none"></textarea>
-
-            <input type="radio" name="bo-type" value="e-mail" id="bo-type-email" class="hidden">
+            <textarea class="body__input" id="form-description" resize="none" required></textarea>
+            <label for="form-bo-info" class="form__label">Backoffice type and data</label>
+            <input type="radio" name="bo-type" value="e-mail" id="bo-type-email" class="hidden" checked>
             <label for="bo-type-email" class="form__type-button hover-shadow">E-mail</label>
             <input type="radio" name="bo-type" value="company id" id="bo-type-id" class="hidden">
             <label for="bo-type-id" class="form__type-button hover-shadow">Company ID</label> :
 
-            <input type="text" class="body__input shallow" id="form-bo-info">
+            <input type="text" class="body__input shallow" id="form-bo-info" required>
 
         </section>
         <section class="error">
             <div class="error__body">
                 <div class="error-wrapper">
-                    <span class="error-text">S</span>
+                    <span class="error__text" id="error-target"></span>
                 </div>
             </div>
         </section>
         <section class="footer">
             <button class="footer__button hover-shadow hover-red" id="cancel">Cancel</button>
-
             <button class="footer__button hover-shadow hover-green" id="confirm">Send</button>
+            <button class="footer__button hover-shadow hover-invert" id="clear">Clear</button>
         </section>
     </div>
+    <script>
+      /*  console.log("hi");
+        document.getElementById("cancel").addEventListener("click", function(event){
+            console.log("Closing supportbot modal")
+        })
+        document.getElementById("confirm").addEventListener("click", function(event){
+            if(
+                document.querySelector('input[name="bo-type"]:checked') &&
+                document.getElementById("form-description").value &&
+                document.getElementById("form-bo-info").value &&
+                document.getElementById("form-title").value
+            ) {
+                var title = document.getElementById("form-title").value;
+                var description = document.getElementById("form-description").value;
+                var boType = document.querySelector('input[name="bo-type"]:checked').value;
+                var boData = document.getElementById("form-bo-info").value;
+                console.log(title,description,boType,boData);
+            } else {
+                console.log(document.getElementById("error-target").innerHTML);
+                document.getElementById("error-target").appendChild(document.createTextNode("hi"))
+            }
+           
+        }) */
+        
+        
+    </script>
+
 </body>
 </html>

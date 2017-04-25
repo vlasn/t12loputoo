@@ -3,7 +3,7 @@ const axios = require("axios"),
 module.exports = {
   post: (input)=>{
     return axios.post(hook, JSON.stringify({
-      "text": "New request from @veljo:",
+      "text":  `New request from ${input.from}:`,
       "attachments": [
           {	
         "title": input.title,
