@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if(localStorage.hasOwnProperty("description")){
       description.value = localStorage.getItem("description");
     }
-
     boData.onkeyup = function() {
       localStorage.setItem("boData", boData.value)
     }
@@ -56,22 +55,26 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
+      function(request, sender, sendResponse) {
       console.log(request);
         if (request.msg === "xhr_success") {
-          console.log(request.data)
+          grab("error-wrapper").innerHTML = 
+            "<div class='success__body'> "+request.data+"</div>";
+          grab("error-wrapper").className = "show";
         }
+
         if(request.msg === "xhr_error") {
           var list = "<ul class='error__list'>";
           for(var i=0; i<request.data.length;i++) {
             list += "<li>"+request.data[i]+"</li>"
           }
           list += "</ul>";
+          grab("error-wrapper").className = "show";
           grab("error-target").innerHTML = list;
         }
         
     }
-);
+  );
 
 
 

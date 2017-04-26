@@ -98,8 +98,13 @@ textarea {
     background-color: #2e2e2e;
     color: white;
 }
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+}
 .error__body {
-    width: 100%;
     background-color: #ffbfa9;
     border: 1px solid #ff848a;
     color: #030303;
@@ -107,6 +112,20 @@ textarea {
     padding: 5px 10px;
     font-size: 0.9rem;
 }
+.success__body {
+    width: 100%;
+    background-color: #64d363;
+    border: 1px solid #11df11;
+    font-size: 0.9rem;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
 .error__text {
     color: inherit;
+}
+.error__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }

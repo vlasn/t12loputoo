@@ -1,11 +1,6 @@
-var set = function(key, value) {
-  return localStorage.setItem(key, JSON.stringify(value));
-}
-var get = function(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
 
-var instantiate = function(slack, pd, api) {
+
+function instantiate(slack, pd, api) {
   chrome.storage.sync.set({
     slack: slack,
     userId: pd,
@@ -20,7 +15,7 @@ function checkOptions() {
   }
 }
 
-function attemptSubmit(title, description, boType, boData, zdUrl){            
+function attemptSubmit(title, description, boType, boData, zdUrl) {            
   if(title && description && boType && boData && zdUrl) {
     var payload = JSON.stringify({
       title: title,
@@ -33,8 +28,8 @@ function attemptSubmit(title, description, boType, boData, zdUrl){
     });
 
 
-    var xhr = new XMLHttpRequest();   // new HttpRequest instance 
-    xhr.open("POST", "http://localhost:3000/request");
+    var xhr = new XMLHttpRequest(); 
+    xhr.open("POST", "http://localhost:3000/request")
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function() {
       if(xhr.readyState == 4 && xhr.status==200) {
@@ -47,15 +42,10 @@ function attemptSubmit(title, description, boType, boData, zdUrl){
       }
     }
     xhr.onerror = function(e) {
-       chrome.runtime.sendMessage({msg: "xhr_error", data: "Something's gone wrong :("});
+       chrome.runtime.sendMessage({msg: "xhr_error", data: ["Something's gone wrong :(", e]});
     }
     xhr.send(payload);
-    
-
-
-
-
   } else {
-      return "Failure"
+       chrome.runtime.sendMessage({msg: "xhr_error", data: ["Please make sure all fields are filled!"]});
   }
 }

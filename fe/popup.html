@@ -6,7 +6,6 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="popup.js"></script>
@@ -30,45 +29,17 @@
             <input type="text" class="body__input shallow" id="form-bo-info" required>
 
         </section>
-        <section class="error">
+        <section class="hide" id="error-wrapper">
             <div class="error__body">
-                <div class="error-wrapper">
-                    <span class="error__text" id="error-target"></span>
-                </div>
+                <div class="error__text" id="error-target"></div>
             </div>
         </section>
         <section class="footer">
-            <button class="footer__button hover-shadow hover-red" id="cancel">Cancel</button>
+            <button class="footer__button hover-shadow hover-red" id="cancel">Close</button>
             <button class="footer__button hover-shadow hover-green" id="confirm">Send</button>
             <button class="footer__button hover-shadow hover-invert" id="clear">Clear</button>
         </section>
     </div>
-    <script>
-      /*  console.log("hi");
-        document.getElementById("cancel").addEventListener("click", function(event){
-            console.log("Closing supportbot modal")
-        })
-        document.getElementById("confirm").addEventListener("click", function(event){
-            if(
-                document.querySelector('input[name="bo-type"]:checked') &&
-                document.getElementById("form-description").value &&
-                document.getElementById("form-bo-info").value &&
-                document.getElementById("form-title").value
-            ) {
-                var title = document.getElementById("form-title").value;
-                var description = document.getElementById("form-description").value;
-                var boType = document.querySelector('input[name="bo-type"]:checked').value;
-                var boData = document.getElementById("form-bo-info").value;
-                console.log(title,description,boType,boData);
-            } else {
-                console.log(document.getElementById("error-target").innerHTML);
-                document.getElementById("error-target").appendChild(document.createTextNode("hi"))
-            }
-           
-        }) */
-        
-        
-    </script>
 
 </body>
 </html>

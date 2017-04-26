@@ -27,7 +27,9 @@ app.get("/", (req,res)=> {
   .catch(e=>console.log(e))
 })
 app.post("/request",(req,res)=>{
+  console.log(req.body);
   let errors = Validateur(req.body);
+  console.log(!!errors);
   if(errors.length <1) {
     Pipedrive.create(req.body)
     .then(response => Pipedrive.addNote(req.body,response.data.data.id))
