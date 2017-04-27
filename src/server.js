@@ -1,11 +1,13 @@
 const express = require("express")
 const dotenv = require("dotenv")
 const bodyParser = require("body-parser")
+const expressValidator = require("express-validator");
 require("dotenv").config()
 const app = express()
 
 
 app.use(bodyParser.json())
+app.use(expressValidator());
 app.set('json spaces', 2);
 
 const Pipedrive = require("./lib/pipedrive")
@@ -29,7 +31,7 @@ app.get("/", (req,res)=> {
 app.post("/request",(req,res)=>{
   console.log(req.body);
   let errors = Validateur(req.body);
-  console.log(!!errors);
+  console.log(errors);
   if(errors.length <1) {
     Pipedrive.create(req.body)
     .then(response => Pipedrive.addNote(req.body,response.data.data.id))
