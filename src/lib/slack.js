@@ -7,7 +7,7 @@ module.exports = {
       "attachments": [
           {	
         "title": input.title,
-        "text": `${input.description} \n Backoffice: ${input.boValue} \n Zendesk: ${input.zdValue}`,
+        "text": `${input.description} \n Backoffice: ${input.boData} \n Zendesk: ${input.zdValue}`,
         "color": "warning"
           }
       ]

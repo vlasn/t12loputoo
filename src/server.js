@@ -22,16 +22,19 @@ let testData = {
   description: "Hello this is dog"
 }
 app.get("/", (req,res)=> {
-  Pipedrive.create(testData)
-  .then(response => Pipedrive.addNote(testData,response.data.data.id))
-  .then(response => Slack.post(testData))
-  .then(response => res.json(response.data))
-  .catch(e=>console.log(e))
+  res.json("Please go away thanks");
 })
 app.post("/request",(req,res)=>{
-  console.log(req.body);
   let errors = Validateur(req.body);
-  console.log(errors);
+  if(req.body.boType == "e-mail") {
+    req.body.boData = "https://just-rock.pipedrive.com/backoffice/find?haystack=email_contains&return_type=user&needle="+req.body.boData;
+  } else if (req.body.boType == "company-id") {
+        req.body.boData= "https://just-rock.pipedrive.com/backoffice/find?haystack=id_is&return_type=company&needle="+req.body.boData;
+  } else {
+    errors.push("Invalid BO type!")
+  }
+  req.body.zdValue = "https://pipedrive.zendesk.com/agent/tickets/"+req.body.zdValue;
+  console.log(req.body);
   if(errors.length <1) {
     Pipedrive.create(req.body)
     .then(response => Pipedrive.addNote(req.body,response.data.data.id))

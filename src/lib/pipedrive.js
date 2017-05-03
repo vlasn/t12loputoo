@@ -5,7 +5,7 @@ const stage_id = process.env.STAGE_ID
 const bo_field = process.env.BO_FIELD
 const zd_field = process.env.ZD_FIELD
 
-const create = input=> {
+const create = input => {
   return axios.post(`${rootUrl}/deals${auth}`,{
     title: input.title,
     person_id: input.person_id,
