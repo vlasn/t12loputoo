@@ -1,7 +1,6 @@
 const express = require("express")
 const dotenv = require("dotenv")
 const bodyParser = require("body-parser")
-const expressValidator = require("express-validator");
 require("dotenv").config()
 const app = express()
 
@@ -12,7 +11,6 @@ app.set('json spaces', 2);
 
 const Pipedrive = require("./lib/pipedrive")
 const Slack = require("./lib/slack")
-const Validateur = require("./lib/validateur")
 let testData = {
   person_id: 337,
   from: "@veljo",
