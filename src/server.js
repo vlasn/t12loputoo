@@ -21,7 +21,7 @@ let testData = {
 app.get("/", (req,res)=> {
   res.json("Please go away thanks");
 })
-app.post("/request",(req,res)=>{
+app.post("/api/request",(req,res)=>{
   let errors = Validateur(req.body);
   if(req.body.boType == "e-mail") {
     req.body.boData = "https://just-rock.pipedrive.com/backoffice/find?haystack=email_contains&return_type=user&needle="+req.body.boData;
