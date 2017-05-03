@@ -2,7 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     var grab = function(id) {
         return document.getElementById(id);
     }
-
+    chrome.storage.sync.get('slack', function(result){
+        console.log(result);
+        grab("slack-username").value = result.slack;
+    })
+    chrome.storage.sync.get('person', function(result){
+        grab("person-id").value = result.person;
+    })
 
     grab("save").addEventListener("click", function(){
         chrome.storage.sync.set(

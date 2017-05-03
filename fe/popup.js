@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var grab = function(id) {
       return document.getElementById(id);
     }
+    chrome.extension.getBackgroundPage().initialCheck()
 
     var url = ""
     chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
           grab("supportbot-wrapper").innerHTML = "<div class='error__body'>Please re-open this window in Zendesk!</div>";
         }
     });
+    
 
     var title = grab("form-title"),
     description = grab("form-description"),
@@ -71,6 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
           list += "</ul>";
           grab("error-wrapper").className = "show";
           grab("error-target").innerHTML = list;
+        }
+        if(request.msg === "fatality") {
+          grab("supportbot-wrapper").innerHTML = "<div class='error__body'>Please set up your credentials by right-clicking the addon icon and clicking Options!</div>";
         }
         
     }
