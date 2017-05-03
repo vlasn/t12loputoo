@@ -4,6 +4,9 @@ const bodyParser = require("body-parser")
 const Validateur = require("./lib/validateur.js")
 require("dotenv").config()
 const app = express()
+const cors = require("cors")
+
+app.use(cors())
 
 
 app.use(bodyParser.json())
