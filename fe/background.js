@@ -29,7 +29,7 @@ function attemptSubmit(title, description, boType, boData, zdUrl) {
 
 
     var xhr = new XMLHttpRequest(); 
-    xhr.open("POST", "http://localhost:3000/request")
+    xhr.open("POST", "67.205.162.167/api/request")
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function() {
       if(xhr.readyState == 4 && xhr.status==200) {
