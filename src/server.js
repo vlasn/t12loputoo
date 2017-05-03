@@ -6,7 +6,6 @@ const app = express()
 
 
 app.use(bodyParser.json())
-app.use(expressValidator());
 app.set('json spaces', 2);
 
 const Pipedrive = require("./lib/pipedrive")
