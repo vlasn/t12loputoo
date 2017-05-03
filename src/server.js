@@ -26,6 +26,7 @@ app.get("/", (req,res)=> {
   res.json("Please go away thanks");
 })
 app.post("/api/request",(req,res)=>{
+    console.log(req.body);
   let errors = Validateur(req.body);
   if(req.body.boType == "e-mail") {
     req.body.boData = "https://just-rock.pipedrive.com/backoffice/find?haystack=email_contains&return_type=user&needle="+req.body.boData;
@@ -35,7 +36,6 @@ app.post("/api/request",(req,res)=>{
     errors.push("Invalid BO type!")
   }
   req.body.zdValue = "https://pipedrive.zendesk.com/agent/tickets/"+req.body.zdValue;
-  console.log(req.body);
   if(errors.length <1) {
     Pipedrive.create(req.body)
     .then(response => Pipedrive.addNote(req.body,response.data.data.id))

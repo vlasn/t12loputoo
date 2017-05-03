@@ -10,11 +10,6 @@
     "default_popup": "popup.html",
     "default_title": "SupportBot"
   },
-  // "content_scripts": [{
-  //   "matches":["https://pipedrive.zendesk.com/agent/tickets/*"],
-  //   "run_at": "document_idle",
-  //   "js": ["main.js"]
-  // }],
   "background": {
     "scripts": ["background.js"]
   },
@@ -26,7 +21,7 @@
     "activeTab",
     "https://ajax.googleapis.com/",
     "http://localhost:3000/",
-    "http://67.205.162.167/",
+    "http://67.205.162.167/api/request",
     "storage"
   ]
 }
