@@ -16,13 +16,13 @@ module.exports = input => {
     errors.push("Please make sure you've entered a valid Company ID")
   }
 
-  if(input.title.length<3) {
+  if(!input.title || input.title.length<3) {
     errors.push("Please make sure you've entered a title!")
   } else if (input.title.length>36) {
     errors.push("Please make sure title is shorter than 36 characters!")
   }
   //description
-  if(input.description.length<5) {
+  if(!input.description || input.description.length<5) {
     errors.push("Please make sure description is more than 5 characters in length!")
   }
   return errors
