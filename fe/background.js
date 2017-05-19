@@ -16,7 +16,6 @@ function initialCheck() {
 
 function attemptSubmit(title, description, boType, boData, zdUrl) {
   if(title && description && boType && boData && zdUrl) {
-
     let data = {
       title: title,
       description: description,
