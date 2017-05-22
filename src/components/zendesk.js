@@ -10,14 +10,15 @@ var zendesk = new Zendesk({
 
 const postZendeskComment = function(input, ticketId) {
   const contentTemplate = 
-    `Sent to Support Engineers by ${input.from} via supportbot:\
-    Title: ${input.title}\
-    BO: ${input.boData}
+    `Sent to Support Engineers:
+
+    Title: ${input.title}
+
     Content: ${input.description}\
     `
   zendesk.tickets.update(ticketId, {
     comment: {body: contentTemplate, public: false}
-  }).then(result => console.log(`Successfully posted comment to ZD!`))
+  }).then(result => console.log(ticketId, result))
 }
 
 module.exports = {postZendeskComment}

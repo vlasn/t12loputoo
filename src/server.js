@@ -25,7 +25,7 @@ app.post("/api/request",(req,res)=>{
     console.log(req.body);
   let errors = Validateur(req.body);
   let temp = req.body.zdValue.split("/")
-  let ticketId = parseInt(temp[temp.length])
+  let ticketId = parseInt(temp[temp.length-1])
 
   if(req.body.boType == "e-mail") {
     req.body.boData = "https://just-rock.pipedrive.com/backoffice/find?haystack=email_contains&return_type=user&needle="+req.body.boData;
