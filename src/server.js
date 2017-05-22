@@ -34,7 +34,6 @@ app.post("/api/request",(req,res)=>{
   } else {
     errors.push("Invalid BO type!")
   }
-  req.body.zdValue = "https://pipedrive.zendesk.com/agent/tickets/"+req.body.zdValue;
   if(errors.length <1) {
     Pipedrive.create(req.body)
     .then(response => Pipedrive.addNote(req.body,response.data.data.id))
