@@ -38,8 +38,8 @@ app.post("/api/request",(req,res)=>{
     Pipedrive.create(req.body)
     .then(response => Pipedrive.addNote(req.body,response.data.data.id))
     .then(response => Slack.post(req.body))
-    .then(response => Zendesk.postZendeskComment(req.body,ticketId))
     .then(response => res.json(response.data))
+    .then(response => Zendesk.postZendeskComment(req.body,ticketId))
     .catch(e=>console.log(e))
   } else {
     res.json(errors);
