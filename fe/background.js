@@ -26,7 +26,7 @@ function attemptSubmit(title, description, boType, boData, zdUrl) {
       zdValue: zdUrl
     }
 
-    fetch("http://67.205.162.167/api/request", {
+    fetch("http://localhost:3000/api/request", {
       method: "post",
       headers: {
         'Accept': 'application/json',

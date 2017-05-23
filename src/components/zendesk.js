@@ -6,8 +6,6 @@ var zendesk = new Zendesk({
   token: process.env.ZENDESK_APIKEY
 });
 
-
-
 const postZendeskComment = function(input, ticketId) {
   const contentTemplate = 
     `Sent to Support Engineers:
