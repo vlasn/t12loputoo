@@ -1,3 +1,5 @@
 # t12loputoo
 
-Omakoostatud tervikrakendus või selle osa. Soovitavalt lõik suvepraktikast.
+Tunnis esitatud. 
+
+vt. vlasn/t12loputoo "Tunnitöö" branchi.
